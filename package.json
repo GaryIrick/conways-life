@@ -1,0 +1,22 @@
+{
+  "name": "conways-life",
+  "version": "1.0.0",
+  "description": "Conway's game of life in React",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GaryIrick/conways-life.git"
+  },
+  "author": "Gary Irick",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GaryIrick/conways-life/issues"
+  },
+  "homepage": "https://github.com/GaryIrick/conways-life#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
