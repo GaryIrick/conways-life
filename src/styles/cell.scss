@@ -1,0 +1,19 @@
+.cell.alive {
+    background-color: blue;
+    color: white;
+    text-align: center;
+}
+
+.cell.dead {
+    background-color: white;
+}
+
+.cell {
+    width: 25px;
+    height: 25px;
+    margin: 1px;
+    border-style: dashed;
+    border-width: thin;
+    border-color: grey;
+    float: left;
+}
