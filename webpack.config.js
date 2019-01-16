@@ -83,7 +83,7 @@ module.exports = {
       superagent: path.join(__dirname, 'node_modules/superagent/superagent.js')
     }
   },
-  devtool: 'cheap-inline-source-map',
+  devtool: 'source-map',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
