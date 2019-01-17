@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import T from 'prop-types'
 import Cell from './Cell'
 
@@ -25,4 +26,8 @@ Grid.propTypes = {
   population: T.arrayOf(T.arrayOf(T.object))
 }
 
-export default Grid
+const mapStateToProps = (state) => ({
+  population: state.population
+})
+
+export default connect(mapStateToProps)(Grid)
