@@ -6,15 +6,15 @@ import Cell from './Cell'
 // Population is expressed as an array of rows, each row is an array of health states.
 
 const Grid = ({ population }) => {
-  const getRow = (row) => row.map((cell, cellIndex) => (
-    <Cell health={cell.health} age={cell.age} key={cellIndex} />
+  const getRow = (row, rowIndex) => row.map((cell, columnIndex) => (
+    <Cell health={cell.health} age={cell.age} rowIndex={rowIndex} columnIndex={columnIndex} key={columnIndex} />
   ))
 
   return <div className="grid"> {
     population.map((row, rowIndex) => (
       <div key={rowIndex} className="gridRow">
         {
-          getRow(row)
+          getRow(row, rowIndex)
         }
       </div>
     ))

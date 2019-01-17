@@ -3,8 +3,9 @@ import { connect } from 'react-redux'
 import nextGeneration from '../actions/nextGeneration'
 import makeBigger from '../actions/makeBigger'
 import makeSmaller from '../actions/makeSmaller'
+import clear from '../actions/clear'
 
-const Controls = ({ generation, onNextClick, onBiggerClick, onSmallerClick }) => (
+const Controls = ({ generation, onNextClick, onBiggerClick, onSmallerClick, onClearClick }) => (
   <div>
     <div>
       Generation: {generation}
@@ -21,6 +22,10 @@ const Controls = ({ generation, onNextClick, onBiggerClick, onSmallerClick }) =>
       <button onClick={onSmallerClick}>
         -
       </button>
+      &nbsp;
+      <button onClick={onClearClick}>
+        Clear
+      </button>
     </div>
   </div>
 )
@@ -33,7 +38,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   onNextClick: () => dispatch(nextGeneration()),
   onBiggerClick: () => dispatch(makeBigger()),
-  onSmallerClick: () => dispatch(makeSmaller())
+  onSmallerClick: () => dispatch(makeSmaller()),
+  onClearClick: () => dispatch(clear())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Controls)

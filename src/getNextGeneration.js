@@ -21,18 +21,18 @@ const isNeighborAlive = (population, rowIndex, columnIndex, rowOffset, columnOff
   return neighbor.health === 'alive' ? 1 : 0
 }
 
-const ageCell = (population, rowIndex, cellIndex) => {
-  const cell = population[rowIndex][cellIndex]
+const ageCell = (population, rowIndex, columnIndex) => {
+  const cell = population[rowIndex][columnIndex]
 
   let neighbors = 0
-  neighbors += isNeighborAlive(population, rowIndex, cellIndex, -1, -1) ? 1 : 0
-  neighbors += isNeighborAlive(population, rowIndex, cellIndex, -1, 0) ? 1 : 0
-  neighbors += isNeighborAlive(population, rowIndex, cellIndex, -1, 1) ? 1 : 0
-  neighbors += isNeighborAlive(population, rowIndex, cellIndex, 0, -1) ? 1 : 0
-  neighbors += isNeighborAlive(population, rowIndex, cellIndex, 0, 1) ? 1 : 0
-  neighbors += isNeighborAlive(population, rowIndex, cellIndex, 1, -1) ? 1 : 0
-  neighbors += isNeighborAlive(population, rowIndex, cellIndex, 1, 0) ? 1 : 0
-  neighbors += isNeighborAlive(population, rowIndex, cellIndex, 1, 1) ? 1 : 0
+  neighbors += isNeighborAlive(population, rowIndex, columnIndex, -1, -1) ? 1 : 0
+  neighbors += isNeighborAlive(population, rowIndex, columnIndex, -1, 0) ? 1 : 0
+  neighbors += isNeighborAlive(population, rowIndex, columnIndex, -1, 1) ? 1 : 0
+  neighbors += isNeighborAlive(population, rowIndex, columnIndex, 0, -1) ? 1 : 0
+  neighbors += isNeighborAlive(population, rowIndex, columnIndex, 0, 1) ? 1 : 0
+  neighbors += isNeighborAlive(population, rowIndex, columnIndex, 1, -1) ? 1 : 0
+  neighbors += isNeighborAlive(population, rowIndex, columnIndex, 1, 0) ? 1 : 0
+  neighbors += isNeighborAlive(population, rowIndex, columnIndex, 1, 1) ? 1 : 0
 
   if (neighbors === 2 || neighbors === 3) {
     return {
@@ -48,7 +48,7 @@ const ageCell = (population, rowIndex, cellIndex) => {
 }
 
 const ageRow = (population, rowIndex) => {
-  return population[rowIndex].map((cell, cellIndex) => ageCell(population, rowIndex, cellIndex))
+  return population[rowIndex].map((cell, columnIndex) => ageCell(population, rowIndex, columnIndex))
 }
 
 const getNextGeneration = (population) => {
