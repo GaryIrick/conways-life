@@ -2,9 +2,9 @@ import React from 'react'
 import Grid from './grid'
 import Controls from './Controls'
 
-const Life = ({ population }) => (
+const Life = () => (
   <div>
-    <Grid population={population} />
+    <Grid />
     <div style={{ clear: 'left', height: '20px' }} />
     <Controls />
   </div>
