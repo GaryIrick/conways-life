@@ -4,9 +4,9 @@ import Controls from './Controls'
 
 const Life = () => (
   <div>
-    <Grid />
-    <div style={{ clear: 'left', height: '20px' }} />
     <Controls />
+    <div style={{ height: '20px' }} />
+    <Grid />
   </div>
 )
 
