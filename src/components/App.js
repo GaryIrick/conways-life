@@ -1,5 +1,4 @@
 import React from 'react'
-import T from 'prop-types'
 import Life from './Life'
 import generateRandomPopulation from '../generateRandomPopulation'
 import getNextGeneration from '../getNextGeneration'
