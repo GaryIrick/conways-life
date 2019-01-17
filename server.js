@@ -18,7 +18,7 @@ app.use(hotMiddleware(compiler, { path: '/__webpack_hmr' }))
 
 const html = fs.readFileSync('index.html', { encoding: 'utf8' })
 
-app.get('/', (req, res) => res.send(html))
+app.get('/:gridSize?', (req, res) => res.send(html))
 
 const port = parseInt(process.env.PORT, 10) || 5001
 

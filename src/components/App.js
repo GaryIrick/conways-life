@@ -4,12 +4,15 @@ import Life from './Life'
 import generateRandomPopulation from '../generateRandomPopulation'
 import getNextGeneration from '../getNextGeneration'
 
+const defaultGridSize = 20
+
 class App extends React.Component {
   state = {};
 
   constructor (props) {
     super(props)
-    this.state.gridSize = props.gridSize
+    // We make the assumption we'll only see numeric values here, since this is not a production app.
+    this.state.gridSize = props.match.params.gridSize || defaultGridSize
     this.onNextClick = this.onNextClick.bind(this)
   }
 
