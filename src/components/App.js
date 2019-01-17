@@ -31,8 +31,4 @@ class App extends React.Component {
   }
 }
 
-App.propTypes = {
-  gridSize: T.number.isRequired
-}
-
 export default App
