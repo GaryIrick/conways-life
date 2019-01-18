@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Grid from './grid'
 import Controls from './Controls'
-import setSize from '../actions/setSize'
+import fetchNewPopulation from '../actions/fetchNewPopulation'
 
 const defaultSize = 15
 
@@ -31,7 +31,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  initSize: (size) => dispatch(setSize(size))
+  initSize: (size) => dispatch(fetchNewPopulation(size))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Life)

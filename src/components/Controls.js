@@ -1,9 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import nextGeneration from '../actions/nextGeneration'
 import makeBigger from '../actions/makeBigger'
 import makeSmaller from '../actions/makeSmaller'
 import clear from '../actions/clear'
+import fetchNextGeneration from '../actions/fetchNextGeneration'
 
 const Controls = ({ generation, onNextClick, onBiggerClick, onSmallerClick, onClearClick }) => (
   <div>
@@ -36,7 +36,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  onNextClick: () => dispatch(nextGeneration()),
+  onNextClick: () => dispatch(fetchNextGeneration()),
   onBiggerClick: () => dispatch(makeBigger()),
   onSmallerClick: () => dispatch(makeSmaller()),
   onClearClick: () => dispatch(clear())

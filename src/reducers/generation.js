@@ -1,13 +1,9 @@
 const generation = (state = 1, action) => {
   switch (action.type) {
-    case 'SET_SIZE':
-    case 'MAKE_BIGGER':
-    case 'MAKE_SMALLER':
-      // When we change the size, we start off with a new population
-      // at generation 1
+    case 'FETCHED_NEW_POPULATION':
       return 1
 
-    case 'NEXT_GENERATION':
+    case 'FETCHED_NEXT_GENERATION':
       return state + 1
 
     default:
