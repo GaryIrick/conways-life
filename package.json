@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server",
-    "dev": "nodemon --watch . --ignore test --ignore src -e js,md,html server.js",
+    "dev": "nodemon --inspect --watch . --ignore test --ignore src -e js,md,html server.js",
     "lint": "eslint .",
     "lint:fix": "eslint --fix ."
   },

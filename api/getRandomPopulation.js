@@ -1,4 +1,3 @@
-// E_NOTIMPL: This goes away once the API is done.
 const livePercentage = 0.35
 
 const generateRandomPopulation = (size) => {
@@ -21,4 +20,14 @@ const generateRandomPopulation = (size) => {
   return population
 }
 
-export default generateRandomPopulation
+const getRandom = ({ params: { gridSize } }, res) => {
+  if (gridSize < 5 || gridSize > 30) {
+    res.status(400).send('grid size must be between 5 and 30')
+    return
+  }
+
+  const population = generateRandomPopulation(gridSize)
+  res.json(population)
+}
+
+module.exports = getRandom

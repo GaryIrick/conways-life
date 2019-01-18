@@ -1,4 +1,3 @@
-// E_NOTIMPL: This goes away once the API is done.
 const isNeighborAlive = (population, rowIndex, columnIndex, rowOffset, columnOffset) => {
   const neighborRowIndex = rowIndex + rowOffset
   const neighborColumnIndex = columnIndex + columnOffset
@@ -56,4 +55,8 @@ const getNextGeneration = (population) => {
   return population.map((row, rowIndex) => ageRow(population, rowIndex))
 }
 
-export default getNextGeneration
+const getNext = ({ body }, res) => {
+  res.json(getNextGeneration(body))
+}
+
+module.exports = getNext
