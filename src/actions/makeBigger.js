@@ -1,3 +1,3 @@
-export default (size) => ({
+export default () => ({
   type: 'MAKE_BIGGER'
 })

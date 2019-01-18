@@ -7,15 +7,9 @@ import { Provider } from 'react-redux'
 import 'font-awesome/css/font-awesome.css'
 import './styles/styles.scss'
 import rootReducer from './reducers'
-import generateRandomPopulation from './generateRandomPopulation'
 import Life from './components/Life'
 
-const prepopulatedStore = {
-  generation: 1,
-  population: generateRandomPopulation(15)
-}
-
-const store = createStore(rootReducer, prepopulatedStore)
+const store = createStore(rootReducer)
 
 render((
   <Provider store={store}>

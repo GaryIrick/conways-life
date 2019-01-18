@@ -3,6 +3,9 @@ import getNextGeneration from '../getNextGeneration'
 
 const population = (state = [], action) => {
   switch (action.type) {
+    case 'SET_SIZE':
+      return generateRandomPopulation(action.size)
+
     case 'MAKE_BIGGER':
       if (state.length >= 30) {
         return state
