@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router'
 import Grid from './grid'
 import Controls from './Controls'
 import fetchNewPopulation from '../actions/fetchNewPopulation'
@@ -13,6 +14,18 @@ class Life extends React.Component {
     this.props.initSize(size)
   }
 
+  componentDidUpdate (prevProps) {
+    if (prevProps) {
+      const size = this.props.match.params.gridSize ? this.props.match.params.gridSize : defaultSize
+      const prevSize = prevProps.match.params.gridSize ? prevProps.match.params.gridSize : defaultSize
+
+      if (size !== prevSize) {
+        // If our size changed, reset the grid.
+        this.props.initSize(size)
+      }
+    }
+  }
+
   render () {
     return <div>
       <Controls />
@@ -23,11 +36,12 @@ class Life extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  population: state.population
+  population: state.population,
+  location: state.location
 })
 
 const mapDispatchToProps = (dispatch) => ({
   initSize: (size) => dispatch(fetchNewPopulation(size))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Life)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Life))
