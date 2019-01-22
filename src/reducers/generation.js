@@ -1,6 +1,7 @@
 const generation = (state = 1, action) => {
   switch (action.type) {
     case 'FETCHED_NEW_POPULATION':
+    case 'CLEAR':
       return 1
 
     case 'FETCHED_NEXT_GENERATION':
