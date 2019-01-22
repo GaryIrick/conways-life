@@ -70,7 +70,7 @@ module.exports = {
   mode,
   entry: [
     'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true',
-    '@babel/polyfill',
+    'babel-polyfill',
     './src/index.js'
   ],
   output: {

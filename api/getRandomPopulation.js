@@ -1,25 +1,6 @@
-const livePercentage = 0.35
+const generateRandomPopulation = require('../lib/generateRandomPopulation')
 
-const generateRandomPopulation = (size) => {
-  const population = []
-
-  for (let i = 0; i < size; i++) {
-    const row = []
-
-    for (let j = 0; j < size; j++) {
-      const isAlive = Math.random() < livePercentage
-      row.push({
-        health: isAlive ? 'alive' : 'dead',
-        age: isAlive ? 1 : 0
-      })
-    }
-
-    population.push(row)
-  }
-
-  return population
-}
-
+// E_NOTIMPL: Can we enforce these limits with OpenAPI?
 const getRandom = ({ params: { gridSize } }, res) => {
   if (gridSize < 5 || gridSize > 30) {
     res.status(400).send('grid size must be between 5 and 30')
