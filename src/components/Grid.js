@@ -3,7 +3,8 @@ import { connect } from 'react-redux'
 import T from 'prop-types'
 import Cell from './Cell'
 
-// Population is expressed as an array of rows, each row is an array of health states.
+// Population is expressed as an array of rows, each row is an array of cells
+// with a "health" and "age".
 
 const Grid = ({ population }) => {
   const getRow = (row, rowIndex) => row.map((cell, columnIndex) => (
