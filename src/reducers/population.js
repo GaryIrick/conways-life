@@ -1,3 +1,5 @@
+const cloneDeep = require('lodash/cloneDeep')
+
 const population = (state = [], action) => {
   switch (action.type) {
     case 'FETCHED_NEW_POPULATION':
@@ -6,8 +8,7 @@ const population = (state = [], action) => {
 
     case 'TOGGLE_CELL':
       const cell = state[action.rowIndex][action.columnIndex]
-      // E_NOTIMPL:  This is GROSS, figure out the correct idiom.
-      const newState = JSON.parse(JSON.stringify(state))
+      const newState = cloneDeep(state)
       const newCell = {}
 
       if (cell.health === 'alive') {
