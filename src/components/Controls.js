@@ -3,9 +3,10 @@ import { connect } from 'react-redux'
 import makeBigger from '../actions/makeBigger'
 import makeSmaller from '../actions/makeSmaller'
 import clear from '../actions/clear'
+import fetchNewPopulation from '../actions/fetchNewPopulation'
 import fetchNextGeneration from '../actions/fetchNextGeneration'
 
-const Controls = ({ generation, onNextClick, onBiggerClick, onSmallerClick, onClearClick }) => (
+const Controls = ({ size, generation, onNextClick, onBiggerClick, onSmallerClick, onClearClick, onRandomizeClick }) => (
   <div>
     <div>
       Generation: {generation}
@@ -21,6 +22,10 @@ const Controls = ({ generation, onNextClick, onBiggerClick, onSmallerClick, onCl
       &nbsp;
       <button onClick={onSmallerClick}>
         -
+      </button>
+      &nbsp;
+      <button onClick={() => onRandomizeClick(size)}>
+        Randomize
       </button>
       &nbsp;
       <button onClick={onClearClick}>
@@ -39,7 +44,8 @@ const mapDispatchToProps = (dispatch) => ({
   onNextClick: () => dispatch(fetchNextGeneration()),
   onBiggerClick: () => dispatch(makeBigger()),
   onSmallerClick: () => dispatch(makeSmaller()),
-  onClearClick: () => dispatch(clear())
+  onClearClick: () => dispatch(clear()),
+  onRandomizeClick: (size) => dispatch(fetchNewPopulation(size))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Controls)
