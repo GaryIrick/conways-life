@@ -33,17 +33,23 @@ const ageCell = (population, rowIndex, columnIndex) => {
   neighbors += isNeighborAlive(population, rowIndex, columnIndex, 1, -1) ? 1 : 0
   neighbors += isNeighborAlive(population, rowIndex, columnIndex, 1, 0) ? 1 : 0
   neighbors += isNeighborAlive(population, rowIndex, columnIndex, 1, 1) ? 1 : 0
+  const wasAlive = cell.health === 'alive'
+  let isAlive = false
+  let newAge = 0
 
-  if (neighbors === 2 || neighbors === 3) {
-    return {
-      health: 'alive',
-      age: cell.health === 'alive' ? cell.age + 1 : 1
-    }
-  } else {
-    return {
-      health: 'dead',
-      age: 0
-    }
+  if (wasAlive && neighbors >= 2 && neighbors <= 3) {
+    isAlive = true
+    newAge = cell.age + 1
+  }
+
+  if (!wasAlive && neighbors === 3) {
+    isAlive = true
+    newAge = 1
+  }
+
+  return {
+    health: isAlive ? 'alive' : 'dead',
+    age: newAge
   }
 }
 
