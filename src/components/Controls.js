@@ -7,16 +7,16 @@ import clear from '../actions/clear'
 import fetchNewPopulation from '../actions/fetchNewPopulation'
 import fetchNextGeneration from '../actions/fetchNextGeneration'
 
-const Controls = ({ history, size, generation, onNextClick, onBiggerClick, onSmallerClick, onClearClick, onRandomizeClick }) => (
+const Controls = ({ history, generation, population, onNextClick, onBiggerClick, onSmallerClick, onClearClick, onRandomizeClick }) => (
   <div>
     <div>
-      Size: {size}
+      Size: {population.length}
     </div>
     <div>
       Generation: {generation}
     </div>
     <div>
-      <button onClick={onNextClick}>
+      <button onClick={() => onNextClick(population)}>
         Next
       </button>
       &nbsp;
@@ -28,7 +28,7 @@ const Controls = ({ history, size, generation, onNextClick, onBiggerClick, onSma
         -
       </button>
       &nbsp;
-      <button onClick={() => onRandomizeClick(size)}>
+      <button onClick={() => onRandomizeClick(population.length)}>
         Randomize
       </button>
       &nbsp;
@@ -41,11 +41,12 @@ const Controls = ({ history, size, generation, onNextClick, onBiggerClick, onSma
 
 const mapStateToProps = (state) => ({
   generation: state.generation,
-  size: state.population.length
+  size: state.population.length,
+  population: state.population
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  onNextClick: () => dispatch(fetchNextGeneration()),
+  onNextClick: (population) => dispatch(fetchNextGeneration(population)),
   onBiggerClick: (history) => dispatch(makeBigger(history)),
   onSmallerClick: (history) => dispatch(makeSmaller(history)),
   onClearClick: () => dispatch(clear()),
