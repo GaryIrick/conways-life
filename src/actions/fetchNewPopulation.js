@@ -1,3 +1,6 @@
+import 'cross-fetch/polyfill'
+
+// Here we return a promise.
 const fetchNewPopulation = (size) => {
   return fetch(`http://localhost:5001/api/random/${size}`)
     .then(response => response.json())
