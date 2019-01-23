@@ -1,4 +1,5 @@
 import React from 'react'
+import T from 'prop-types'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 import makeBigger from '../actions/makeBigger'
@@ -7,7 +8,7 @@ import clear from '../actions/clear'
 import fetchNewPopulation from '../actions/fetchNewPopulation'
 import fetchNextGeneration from '../actions/fetchNextGeneration'
 
-const Controls = ({ history, generation, population, onNextClick, onBiggerClick, onSmallerClick, onClearClick, onRandomizeClick }) => (
+export const Controls = ({ history, generation, population, onNextClick, onBiggerClick, onSmallerClick, onClearClick, onRandomizeClick }) => (
   <div>
     <div>
       Size: {population.length}
@@ -39,18 +40,29 @@ const Controls = ({ history, generation, population, onNextClick, onBiggerClick,
   </div>
 )
 
-const mapStateToProps = (state) => ({
+Controls.propTypes = {
+  history: T.object.isRequired,
+  generation: T.number.isRequired,
+  population: T.arrayOf(T.arrayOf(T.object)).isRequired,
+  onNextClick: T.func.isRequired,
+  onBiggerClick: T.func.isRequired,
+  onSmallerClick: T.func.isRequired,
+  onRandomizeClick: T.func.isRequired,
+  onClearClick: T.func.isRequired
+}
+
+export const mapStateToProps = (state) => ({
   generation: state.generation,
   size: state.population.length,
   population: state.population
 })
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   onNextClick: (population) => dispatch(fetchNextGeneration(population)),
   onBiggerClick: (history) => dispatch(makeBigger(history)),
   onSmallerClick: (history) => dispatch(makeSmaller(history)),
-  onClearClick: () => dispatch(clear()),
-  onRandomizeClick: (size) => dispatch(fetchNewPopulation(size))
+  onRandomizeClick: (size) => dispatch(fetchNewPopulation(size)),
+  onClearClick: () => dispatch(clear())
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Controls))
