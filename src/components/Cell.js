@@ -1,10 +1,10 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import T from 'prop-types'
+import { connect } from 'react-redux'
 import classNames from 'classnames'
 import toggleCell from '../actions/toggleCell'
 
-const Cell = ({ health, age, rowIndex, columnIndex, onCellClick }) => (
+export const Cell = ({ health, age, rowIndex, columnIndex, onCellClick }) => (
   <div className={classNames('cell', health)} onClick={() => {
     onCellClick(rowIndex, columnIndex)
   }} >
@@ -14,13 +14,21 @@ const Cell = ({ health, age, rowIndex, columnIndex, onCellClick }) => (
   </div>
 )
 
+// E_NOTIMPL: Should onCellClick be added to CellWrapper.propTypes instead?
 Cell.propTypes = {
   health: T.oneOf(['alive', 'dead']).isRequired,
-  age: T.number.isRequired
+  age: T.number.isRequired,
+  onCellClick: T.func.isRequired
 }
 
-const mapDispatchToProps = (dispatch) => ({
+export class CellWrapper extends React.Component {
+  render () {
+    return <Cell {...this.props} />
+  }
+}
+
+export const mapDispatchToProps = (dispatch) => ({
   onCellClick: (rowIndex, columnIndex) => dispatch(toggleCell(rowIndex, columnIndex))
 })
 
-export default connect(null, mapDispatchToProps)(Cell)
+export default connect(null, mapDispatchToProps)(CellWrapper)

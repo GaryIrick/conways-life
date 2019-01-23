@@ -43,7 +43,8 @@
         "beforeEach": true,
         "afterEach": true,
         "it": true,
-        "expect": true
+        "expect": true,
+        "jest": true
       },
       "rules": {
         "no-unused-expressions": "off"
