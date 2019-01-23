@@ -14,21 +14,14 @@ export const Cell = ({ health, age, rowIndex, columnIndex, onCellClick }) => (
   </div>
 )
 
-// E_NOTIMPL: Should onCellClick be added to CellWrapper.propTypes instead?
 Cell.propTypes = {
   health: T.oneOf(['alive', 'dead']).isRequired,
   age: T.number.isRequired,
   onCellClick: T.func.isRequired
 }
 
-export class CellWrapper extends React.Component {
-  render () {
-    return <Cell {...this.props} />
-  }
-}
-
 export const mapDispatchToProps = (dispatch) => ({
   onCellClick: (rowIndex, columnIndex) => dispatch(toggleCell(rowIndex, columnIndex))
 })
 
-export default connect(null, mapDispatchToProps)(CellWrapper)
+export default connect(null, mapDispatchToProps)(Cell)
