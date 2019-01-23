@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { shallow } from 'enzyme'
-import { Controls, mapStateToProps } from '../../../src/components/Controls'
+import { Controls, mapStateToProps, mapDispatchToProps } from '../../../src/components/Controls'
 
 describe('components', () => {
   describe('Controls', () => {
@@ -51,6 +51,39 @@ describe('components', () => {
       expect(mappedProps.generation).toBe(generation)
       expect(mappedProps.size).toBe(population.length)
       expect(mappedProps.population).toEqual(population)
+    })
+
+    describe('map dispatch to props', () => {
+      let dispatch
+
+      beforeEach(() => {
+        dispatch = jest.fn()
+      })
+
+      it('dispatches next action', () => {
+        expect(0).toBe(1)
+      })
+
+      it('dispatches bigger action', () => {
+        expect(0).toBe(1)
+      })
+
+      it('dispatches smaller action', () => {
+        expect(0).toBe(1)
+      })
+
+      it('dispatches randomize action', () => {
+        expect(0).toBe(1)
+      })
+
+      it('dispatches clear action', () => {
+        const clear = require('../../../src/actions/clear').default
+        const methods = mapDispatchToProps(dispatch)
+        expect(methods.onClearClick).not.toBeUndefined()
+        methods.onClearClick()
+        expect(dispatch).toHaveBeenCalledTimes(1)
+        expect(dispatch).toHaveBeenCalledWith(clear())
+      })
     })
 
     it('renders buttons', () => {
