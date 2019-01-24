@@ -4,12 +4,16 @@
   "description": "Conway's game of life in React",
   "main": "server.js",
   "scripts": {
-    "start": "node server",
-    "dev": "nodemon --inspect --watch . --ignore test --ignore src -e js,md,html server.js",
+    "start": "cross-env NODE_ENV=production node server",
+    "dev": "cross-env NODE_ENV=development nodemon --inspect --watch . --ignore test --ignore src -e js,md,html server.js",
     "test": "jest --ci --coverage",
     "test:dev": "jest --watch",
     "lint": "eslint .",
-    "lint:fix": "eslint --fix ."
+    "lint:fix": "eslint --fix .",
+    "build:": "cp index.html public/index.html",
+    "build:copy-html": "cp index.html public/index.html",
+    "build:windows:copy-html": "mkdir public & copy index.html public\\index.html",
+    "build:webpack": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js"
   },
   "repository": {
     "type": "git",
@@ -72,6 +76,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-runtime": "^6.26.0",
     "bootstrap": "^4.2.1",
+    "cross-env": "^5.2.0",
     "css-loader": "^2.1.0",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",

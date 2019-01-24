@@ -1,5 +1,4 @@
 const path = require('path')
-const webpack = require('webpack')
 
 const rules = (() => {
   const result = [
@@ -69,7 +68,6 @@ const mode = process.env.NODE_ENV || 'development'
 module.exports = {
   mode,
   entry: [
-    'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true',
     'babel-polyfill',
     './src/index.js'
   ],
@@ -78,14 +76,5 @@ module.exports = {
     filename: 'bundle.js'
   },
   module: { rules },
-  devtool: 'source-map',
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify(mode)
-      }
-    })
-  ]
+  devtool: 'source-map'
 }
