@@ -48,8 +48,6 @@ describe('components', () => {
 
         methods.onCellClick(5, 6)
 
-        // E_NOTIMPL: Is this enough testing for toggleCell, or do
-        // we expect to see a unit test for it as well?
         expect(dispatch).toHaveBeenCalledTimes(1)
         expect(dispatch).toHaveBeenCalledWith(toggleCell(5, 6))
       })
