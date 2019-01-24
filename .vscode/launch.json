@@ -25,6 +25,16 @@
       "name": "Launch Chrome",
       "url": "http://localhost:5001",
       "webRoot": "${workspaceFolder}"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Jest Tests",
+      "program": "${workspaceRoot}\\node_modules\\jest\\bin\\jest.js",
+      "args": [
+        "-i"
+      ],
+      "internalConsoleOptions": "openOnSessionStart",
     }
   ]
 }
