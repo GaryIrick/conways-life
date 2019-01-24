@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 import Grid from './grid'
 import Controls from './Controls'
-import fetchNewPopulation from '../actions/fetchNewPopulation'
+import { fetchNewPopulation } from '../actions'
 
 const defaultSize = 15
 

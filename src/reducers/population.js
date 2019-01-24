@@ -1,12 +1,14 @@
+import { FETCHED_NEW_POPULATION, FETCHED_NEXT_GENERATION, TOGGLE_CELL, CLEAR } from '../actions/types'
+
 const cloneDeep = require('lodash/cloneDeep')
 
 const population = (state = [], action) => {
   switch (action.type) {
-    case 'FETCHED_NEW_POPULATION':
-    case 'FETCHED_NEXT_GENERATION':
+    case FETCHED_NEW_POPULATION:
+    case FETCHED_NEXT_GENERATION:
       return action.population
 
-    case 'TOGGLE_CELL':
+    case TOGGLE_CELL:
       const cell = state[action.rowIndex][action.columnIndex]
       const newState = cloneDeep(state)
       const newCell = {}
@@ -22,7 +24,7 @@ const population = (state = [], action) => {
       newState[action.rowIndex][action.columnIndex] = newCell
       return newState
 
-    case 'CLEAR':
+    case CLEAR:
       const clearState = []
 
       for (let i = 0; i < state.length; i++) {

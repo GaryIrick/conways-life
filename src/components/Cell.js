@@ -2,7 +2,7 @@ import React from 'react'
 import T from 'prop-types'
 import { connect } from 'react-redux'
 import classNames from 'classnames'
-import toggleCell from '../actions/toggleCell'
+import { toggleCell } from '../actions'
 
 export const Cell = ({ health, age, rowIndex, columnIndex, onCellClick }) => (
   <div className={classNames('cell', health)} onClick={() => {

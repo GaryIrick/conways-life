@@ -2,11 +2,7 @@ import React from 'react'
 import T from 'prop-types'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
-import makeBigger from '../actions/makeBigger'
-import makeSmaller from '../actions/makeSmaller'
-import clear from '../actions/clear'
-import fetchNewPopulation from '../actions/fetchNewPopulation'
-import fetchNextGeneration from '../actions/fetchNextGeneration'
+import { clear, fetchNewPopulation, fetchNextGeneration, makeBigger, makeSmaller } from '../actions'
 
 export const Controls = ({ history, generation, population, onNextClick, onBiggerClick, onSmallerClick, onClearClick, onRandomizeClick }) => (
   <div>

@@ -5,8 +5,8 @@ import configureMockStore from 'redux-mock-store'
 import { shallow } from 'enzyme'
 import fetchMock from 'fetch-mock'
 import { Controls, mapStateToProps, mapDispatchToProps } from '../../../src/components/Controls'
-import fetchNewPopulation from '../../../src/actions/fetchNewPopulation'
-import fetchNextGeneration from '../../../src/actions/fetchNextGeneration'
+import { fetchNewPopulation, fetchNextGeneration } from '../../../src/actions'
+import { FETCHED_NEW_POPULATION, FETCHED_NEXT_GENERATION } from '../../../src/actions/types'
 
 const middlewares = [promiseMiddleware, thunk]
 const mockStore = configureMockStore(middlewares)
@@ -171,7 +171,7 @@ describe('components', () => {
 
         const expectedActions = [
           {
-            type: 'FETCHED_NEW_POPULATION',
+            type: FETCHED_NEW_POPULATION,
             population: newPopulation
           }
         ]
@@ -198,7 +198,7 @@ describe('components', () => {
 
         const expectedActions = [
           {
-            type: 'FETCHED_NEXT_GENERATION',
+            type: FETCHED_NEXT_GENERATION,
             population: nextPopulation
           }
         ]
