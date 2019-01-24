@@ -25,9 +25,6 @@ describe('reducers', () => {
     })
 
     it('toggles alive cell', () => {
-      // E_NOTIMPL: Is it bad that we have an additional dependency on toggleCell(), even though
-      // we aren't really testing it here?  The other option would be to spin up an action by
-      // hand, and that seems brittle.
       const newState = population(oldState, toggleCell(1, 1))
       expect(newState[1][1]).toEqual(dead())
     })
