@@ -1,6 +1,8 @@
 const generateRandomPopulation = require('../lib/generateRandomPopulation')
 
-// E_NOTIMPL: Can we enforce these limits with OpenAPI?
+// We would probably enforce the 5 <= x <= 30 rule somewhere else,
+// either with OpenAPI in this project or in a gateway in front
+// of this server.
 const getRandom = ({ params: { gridSize } }, res) => {
   if (gridSize < 5 || gridSize > 30) {
     res.status(400).send('grid size must be between 5 and 30')

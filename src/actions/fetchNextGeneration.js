@@ -1,6 +1,7 @@
 import 'cross-fetch/polyfill'
 import { FETCHED_NEXT_GENERATION } from './types'
 
+// This is poorly named.
 export const fetchNextGenerationAction = (population) => ({
   type: FETCHED_NEXT_GENERATION,
   population
