@@ -68,33 +68,6 @@ describe('components', () => {
         dispatch = jest.fn()
       })
 
-      it('dispatches next action', () => {
-        // E_NOTIMPL: What else can we do here?  We test the full async
-        // action elsewhere, is this enough or am I missing part of the
-        // test?
-        const methods = mapDispatchToProps(dispatch)
-        expect(methods.onNextClick).not.toBeUndefined()
-        expect(typeof (methods.onNextClick)).toBe('function')
-      })
-
-      it('dispatches bigger action', () => {
-        const methods = mapDispatchToProps(dispatch)
-        expect(methods.onBiggerClick).not.toBeUndefined()
-        expect(typeof (methods.onBiggerClick)).toBe('function')
-      })
-
-      it('dispatches smaller action', () => {
-        const methods = mapDispatchToProps(dispatch)
-        expect(methods.onSmallerClick).not.toBeUndefined()
-        expect(typeof (methods.onSmallerClick)).toBe('function')
-      })
-
-      it('dispatches randomize action', () => {
-        const methods = mapDispatchToProps(dispatch)
-        expect(methods.onRandomizeClick).not.toBeUndefined()
-        expect(typeof (methods.onRandomizeClick)).toBe('function')
-      })
-
       it('dispatches clear action', () => {
         const clear = require('../../../src/actions/clear').default
         const methods = mapDispatchToProps(dispatch)
@@ -102,6 +75,42 @@ describe('components', () => {
         methods.onClearClick()
         expect(dispatch).toHaveBeenCalledTimes(1)
         expect(dispatch).toHaveBeenCalledWith(clear())
+      })
+
+      // For the rest of these, we don't care what args we send to the click method.
+      // They all return either a thunk or a promise, and those will get tested
+      // in the unit tests for those individual actions.
+
+      it('dispatches next action', () => {
+        const methods = mapDispatchToProps(dispatch)
+        expect(methods.onNextClick).not.toBeUndefined()
+        expect(typeof (methods.onNextClick)).toBe('function')
+        methods.onNextClick(/* don't care about the args here */)
+        expect(dispatch).toHaveBeenCalledTimes(1)
+      })
+
+      it('dispatches bigger action', () => {
+        const methods = mapDispatchToProps(dispatch)
+        expect(methods.onBiggerClick).not.toBeUndefined()
+        expect(typeof (methods.onBiggerClick)).toBe('function')
+        methods.onBiggerClick(/* don't care about the args here */)
+        expect(dispatch).toHaveBeenCalledTimes(1)
+      })
+
+      it('dispatches smaller action', () => {
+        const methods = mapDispatchToProps(dispatch)
+        expect(methods.onSmallerClick).not.toBeUndefined()
+        expect(typeof (methods.onSmallerClick)).toBe('function')
+        methods.onSmallerClick(/* don't care about the args here */)
+        expect(dispatch).toHaveBeenCalledTimes(1)
+      })
+
+      it('dispatches randomize action', () => {
+        const methods = mapDispatchToProps(dispatch)
+        expect(methods.onRandomizeClick).not.toBeUndefined()
+        expect(typeof (methods.onRandomizeClick)).toBe('function')
+        methods.onRandomizeClick(/* don't care about the args here */)
+        expect(dispatch).toHaveBeenCalledTimes(1)
       })
     })
 
