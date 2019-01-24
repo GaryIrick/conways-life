@@ -5,7 +5,6 @@ const devMiddleware = require('webpack-dev-middleware')
 const hotMiddleware = require('webpack-hot-middleware')
 const webpack = require('webpack')
 
-// E_NOTIMPL:  Is the order of these app.use() calls important?
 app.use(express.json())
 
 app.use('/api', require('./api'))
