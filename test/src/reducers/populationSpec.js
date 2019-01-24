@@ -24,6 +24,11 @@ describe('reducers', () => {
       ]
     })
 
+    it('uses default state', () => {
+      const newState = population(undefined, clear())
+      expect(newState).toEqual([])
+    })
+
     it('toggles alive cell', () => {
       const newState = population(oldState, toggleCell(1, 1))
       expect(newState[1][1]).toEqual(dead())

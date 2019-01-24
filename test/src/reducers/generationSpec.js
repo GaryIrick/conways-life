@@ -11,6 +11,11 @@ describe('reducers', () => {
       oldState = 5
     })
 
+    it('uses default state', () => {
+      const newState = generation(undefined, clear())
+      expect(newState).toBe(1)
+    })
+
     it('reset after clear', () => {
       const newState = generation(oldState, clear())
       expect(newState).toBe(1)
