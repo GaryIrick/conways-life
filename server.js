@@ -15,7 +15,7 @@ app.use('/', express.static('public'))
 
 const html = fs.readFileSync('index.html', { encoding: 'utf8' })
 
-app.get('/[0-9]+', (req, res) => res.send(html))
+app.get('/([0-9]*)?', (req, res) => res.send(html))
 
 const port = parseInt(process.env.PORT, 10) || 5001
 
