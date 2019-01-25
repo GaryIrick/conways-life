@@ -11,9 +11,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "build:": "cp index.html public/index.html",
-    "build:copy-html": "cp index.html public/index.html",
-    "build:windows:copy-html": "mkdir public & copy index.html public\\index.html",
-    "build:webpack": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js"
+    "build:webpack": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js",
+    "build:docker": "docker build -t conways-life ."
   },
   "repository": {
     "type": "git",
@@ -50,7 +49,6 @@
   },
   "homepage": "https://github.com/GaryIrick/conways-life#readme",
   "dependencies": {
-    "babel-core": "^6.26.3",
     "classnames": "^2.2.6",
     "cross-fetch": "^3.0.0",
     "express": "^4.16.4",

@@ -9,6 +9,7 @@ export const fetchNewPopulationAction = (population) => ({
 
 // Here we return a promise.
 export default (size) => {
+  // E_NOTIMPL: What's the local convention for configuring the port here?
   return fetch(`http://localhost:5001/api/random/${size}`)
     .then(response => response.json())
     .then(json => fetchNewPopulationAction(json))
