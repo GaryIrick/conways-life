@@ -30,7 +30,7 @@ describe('actions', () => {
         [dead(), alive()]
       ]
 
-      fetchMock.getOnce(`http://localhost:5001/api/random/2`, {
+      fetchMock.getOnce(`/api/random/2`, {
         body: newPopulation,
         headers: { 'content-type': 'application/json' }
       })

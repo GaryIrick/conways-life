@@ -1,0 +1,1 @@
+docker service create --replicas 3 --name conway-swarm --publish target=5001,published=80 --env "API_URL=http://localhost/api" conways-life

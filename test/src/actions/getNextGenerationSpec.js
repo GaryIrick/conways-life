@@ -35,7 +35,7 @@ describe('actions', () => {
         [dead(), dead()]
       ]
 
-      fetchMock.postOnce(`http://localhost:5001/api/next`, {
+      fetchMock.postOnce(`/api/next`, {
         body: nextPopulation,
         headers: { 'content-type': 'application/json' }
       })

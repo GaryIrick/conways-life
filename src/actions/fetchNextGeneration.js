@@ -10,7 +10,7 @@ export const fetchNextGenerationAction = (population) => ({
 // Here we return a thunk.
 export default (population) => {
   return (dispatch) => {
-    fetch(`http://localhost:5001/api/next`, {
+    fetch(`/api/next`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
