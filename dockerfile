@@ -1,6 +1,4 @@
-# E_NOTIMPL: Do we always want to grab the latest version of node?
-# If not, which one do we use?
-FROM node
+FROM node:10.15.0
 ENV NODE_ENV production
 ENV PORT 5001
 RUN mkdir -p /usr/src/app
