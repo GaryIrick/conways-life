@@ -2,12 +2,10 @@
     background-color: blue;
     color: white;
     text-align: center;
-    transition: background-color 250ms
 }
 
 .cell.dead {
     background-color: white;
-    transition: background-color 250ms
 }
 
 .cell {
@@ -19,4 +17,6 @@
     border-color: grey;
     float: left;
     cursor: pointer;
+    transition: background-color 250ms;
+    border-radius: 25px;
 }
