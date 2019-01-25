@@ -2,10 +2,12 @@
     background-color: blue;
     color: white;
     text-align: center;
+    transition: background-color 250ms
 }
 
 .cell.dead {
     background-color: white;
+    transition: background-color 250ms
 }
 
 .cell {
